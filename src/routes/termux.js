@@ -19,13 +19,20 @@ const healthRoutes = [
             .duration(1000)
             .run();
 
-          termux.clipboardGet()
-            .run()
-            .then(function (text) {
+          Promise.all([
+            termux.smsInbox()
+              .date()
+              .showNumbers()
+              .run(),
+            termux.clipboardGet()
+              .run(),
+          ])
+            .then(([smses, clipboard]) => {
               resolve({
                 body: {
                   message: 'Request success',
-                  clipboard: text,
+                  clipboard,
+                  smses,
                   body,
                   query,
                   params,
@@ -35,6 +42,7 @@ const healthRoutes = [
                 },
               });
             })
+            .catch(reject);
         });
       },
     },
