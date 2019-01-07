@@ -14,7 +14,7 @@ const checkSms = content => {
   const matched = commandPattern.exec(content);
 
   if (matched) {
-    const [command, ...params] = matched[1];
+    const [command, ...params] = matched[1].split(' ');
     if (smsCommands[command]) {
       return smsCommands[command](...params);
     }
