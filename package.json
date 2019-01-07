@@ -24,7 +24,7 @@
     "express-fileupload": "1.0.0",
     "lodash": "4.17.11",
     "mongodb": "3.1.10",
-    "termux": "1.1.0",
+    "termux": "git+https://git@github.com/Lukasz-pluszczewski/termux.git",
     "node-cmd": "3.0.0"
   },
   "devDependencies": {
