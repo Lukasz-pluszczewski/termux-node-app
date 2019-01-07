@@ -3,7 +3,7 @@ import { find, findLast, insert, remove, update } from 'services/mongoDatabaseSe
 
 const healthRoutes = [
   {
-    path: '*',
+    path: '/echo',
     handlers: {
       get: ({ body, query, params, originalUrl, protocol, xhr, get, req, db }) => {
         return {
