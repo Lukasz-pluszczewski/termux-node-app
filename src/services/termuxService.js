@@ -18,7 +18,7 @@ const checkSms = content => {
     if (smsCommands[command]) {
       return smsCommands[command](...params);
     }
-    return Promise.reject('Command not found');
+    return Promise.reject(`Command ${command} not found`);
   }
 };
 
@@ -34,6 +34,9 @@ const termuxService = {
             checkSms(body);
           }
         });
+      })
+      .catch(error => {
+        console.log('Sms command error:', error);
       });
   },
   watchSms: (interval = 20000) => {
