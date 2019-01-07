@@ -17,7 +17,7 @@ const healthRoutes = [
 
           termux.vibrate()
             .duration(1000)
-            .run()
+            .run();
 
           termux.clipboardGet()
             .run()

@@ -1,3 +1,5 @@
+import termux from 'termux';
+
 const healthRoutes = [
   {
     path: '/health',
@@ -6,7 +8,7 @@ const healthRoutes = [
         return {
           body: {
             status: 'healthy',
-            dbConnected: db.serverConfig.isConnected(),
+            termuxStatus: termux.hasTermux,
           },
         };
       },
