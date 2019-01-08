@@ -8,6 +8,10 @@ const smsCommands = {
       .duration(parseInt(length))
       .run();
   },
+  toast: (text = 'Hello!') => {
+    return termux.toast()
+      .text(text);
+  },
 };
 
 const checkSms = content => {
